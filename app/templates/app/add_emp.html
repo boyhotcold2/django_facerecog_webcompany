@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<script src="https://kit.fontawesome.com/161e3cb14c.js" crossorigin="anonymous"></script>
+
+    <style>
+        .brand h2 span {
+    
+    display: block;
+   text-align: center;
+   padding-top: 5px;
+   background: -webkit-linear-gradient(#000046, #1CB5E0);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+    }
+    .brand h2 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    </style>
+
+<div class="brand">
+    <h2>
+        {% load static %}
+        <img src="{% static 'dashboard/img/logo_fhq.png' %}" alt="" style="width: 120px; height: 120px; margin-top: 20px; " >
+        <span style="font-weight: bold;"> Add Employee Information Form
+        </span>
+    </h2>
+</div>
+   
+    <div class="container" style="background-color: white; padding: 50px;">
+
+    <h3 style="text-align: center;   background: -webkit-linear-gradient(#000046, #1CB5E0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;">Please fill in this form to become a member company!</h3>
+
+    <form method="POST">{% csrf_token %}
+        <div class="fieldWrapper">
+            <div class="container" style="padding: 20px;"><span class="fa fa-id-card"></span> ID:  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; {{ form.id }} </div>
+            <div class="container" style="padding: 20px;"><span class="fa fa-address-book"></span>NAME: &nbsp; {{ form.name }} </div>
+            <div class="container" style="padding: 20px;"><span class="fa fa-phone-square"></span>PHONE: {{ form.phone }} </div>
+            <div class="container" style="padding: 20px;"><span class="fa fa-envelope"></span>EMAIL: &nbsp; {{ form.email }} </div>
+            <div class="container" style="padding: 20px;"><span class="fa fa-map-marker"></span>ADDRESS: {{ form.address }} </div>
+            <div class="container" style="padding: 20px;"><span class="fa fa-comments"></span>DESCRIPTION: {{ form.description }} </div>
+            <div class="container" style="padding: 20px;"><span class="fa fa-users"></span>STATUS: {{ form.attendance }} </div>
+
+
+        </div>
+        <button type="submit" class="save btn btn-info" style=" border-radius:10px;  padding:15px; background: #1541f0;">Save</button>
+    </form>
+    </div>
+
+{% endblock %}
+
+

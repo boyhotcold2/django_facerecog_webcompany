@@ -1,0 +1,137 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<style>
+		.messages{
+			background-color:#ff0020;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+			border-radius:40px;
+			text-align:center;
+		}
+		#success
+		{
+			background-color:green;
+		}
+		
+		body
+		{
+			background-color: #ebeff5;
+		}
+		#total-students
+		{
+			background: linear-gradient(#360033,#0b8793);
+		}
+		#present-students
+		{
+			
+			background: linear-gradient(#6441A5,#2a0845);
+		}
+		#absent-students
+		{
+			background: linear-gradient(#FC466B,#3F5EFB);
+		}
+		.files input {
+		    outline: 2px dashed #92b0b3;
+		    outline-offset: -10px;
+		    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    padding: 120px 0px 85px 35%;
+		    text-align: center !important;
+		    margin: 0;
+		    height:250px;
+		    width: 100% !important;
+		}
+		.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+		    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+		 }
+		.files{ position:relative}
+		.files:after {  pointer-events: none;
+		    position: absolute;
+		    top: 60px;
+		    left: 0;
+		    width: 50px;
+		    right: 0;
+		    height: 56px;
+		    content: "";
+		    background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+		    display: block;
+		    margin: 0 auto;
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+		.color input{ background-color:#f1f1f1;}
+		.files:before {
+		    position: absolute;
+		    bottom: 10px;
+		    left: 0;  pointer-events: none;
+		    width: 100%;
+		    right: 0;
+		    height: 57px;
+		    content: " or drag it here. ";
+		    display: block;
+		    margin: 0 auto;
+		    color: #2ea591;
+		    font-weight: 600;
+		    text-transform: capitalize;
+		    text-align: center;
+		}
+			 .fa {
+		  padding: 5px;
+		  font-size: 25px;
+		  width: 50px;
+		}
+		.inputfield input{
+		  margin-bottom: 10px;
+		}
+		.inputlabel label{
+		  margin-bottom: 17px;
+		}
+		.wrapper{
+		  text-align: center;
+		  padding-top: 8em;
+		  font-size: 29px;
+		}
+	</style>
+	<title>{% block title %}{% endblock %}</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<!----------------Fonts--------------->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet"> -->
+	<!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> -->
+	<!----------------CSS--------------->
+	<!-- <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+	{% block css %}{% endblock %}
+
+	{% include 'app/navbar.html' %}
+</head>
+
+
+<body>
+	
+	{% include 'app/message.html' %}
+	
+	{% block content %}
+	{% endblock %}
+    <hr>
+    
+
+	<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+	{% block js %} {% endblock %}
+</body>
+</html>

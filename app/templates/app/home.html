@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> KTMT K18</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .fa {
+      padding: 5px;
+      font-size: 25px;
+      width: 50px;
+    }
+    .inputfield input{
+      margin-bottom: 10px;
+    }
+    .inputlabel label{
+      margin-bottom: 17px;
+    }
+    .wrapper{
+      text-align: center;
+      padding-top: 8em;
+      font-size: 29px;
+    }
+  </style>
+</head>
+<body>
+         <div class="col-sm-6" style="text-align:right;">
+          {% if user.is_authenticated %}
+            <a class="navbar-brand" href="/logout">LOGOUT</a>
+            <a class="navbar-brand" href="/">Welcome-{{user.username}}</a>
+          {% endif %}
+        </div>
+{% include 'app/message.html' %}
+
+<div style="min-height: 90vh">
+  {% block content %}
+
+  {% endblock %}
+</div>
+
+</body>
+</html>
+
+

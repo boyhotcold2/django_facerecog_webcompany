@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+  
+	<title>Main</title>
+
+	<style>
+		  @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500&display=swap');
+body {
+    font-family: 'Mulish', sans-serif;
+    background: linear-gradient(#020024, #090979, #00d4ff);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#customers-testimonials .item {
+    background: linear-gradient(#E0EAFC,#CFDEF3);
+    box-shadow: 0px 1px 2px 0px rgb(255, 255, 255),
+            1px 2px 4px 0px rgb(255, 255, 255),
+            2px 4px 8px 0px rgb(255, 255, 255),
+            2px 4px 16px 0px rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 50px;
+    opacity: .2;
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#customers-testimonials .owl-item.active.center .item {
+    
+    opacity: 1;
+    -webkit-transform: scale3d(1.0, 1.0, 1);
+    transform: scale3d(1.0, 1.0, 1);
+}
+.owl-carousel .owl-item img {
+    
+    transform-style: preserve-3d;
+    max-width: 90px;
+    margin: 0 auto 17px;
+}
+#customers-testimonials.owl-carousel .owl-dots .owl-dot.active span, #customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span {
+  background: linear-gradient(#00F260,#0575E6);
+
+    transform: translate3d(0px, -50%, 0px) scale(0.6);
+}
+#customers-testimonials.owl-carousel .owl-dots {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+#customers-testimonials.owl-carousel .owl-dots .owl-dot {
+    display: inline-block;
+    outline: none;
+}
+#customers-testimonials.owl-carousel .owl-dots .owl-dot span {
+    background: #fff;
+    display: inline-block;
+    height: 20px;
+    margin: 0 2px 5px;
+    transform: translate3d(0px, -50%, 0px) scale(0.3);
+    transform-origin: 50% 50% 0;
+    transition: all 250ms ease-out 0s;
+    width: 20px;
+    border-radius: 100%;
+}
+ 
+	</style>
+
+
+
+
+<style>
+  .cssloader {
+  padding-top: calc(35vh - 25px);
+}
+
+/** loader **/
+.sh1 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 50px 0 0;
+  border-color: #354952 transparent transparent transparent;
+  margin: 0 auto;
+  animation: shk1 1s ease-in-out infinite normal;
+}
+
+.sh2 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 50px 50px;
+  border-color: transparent  transparent #0e4eff transparent ;
+  margin: -50px auto 0;
+  animation: shk2 1s ease-in-out infinite alternate;
+}
+
+/** animation starts here **/
+@keyframes shk1 {
+  0% {
+    transform: rotate(-360deg);
+  }  
+  
+  100% {
+  }
+}
+
+@keyframes shk2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+  }
+}
+
+.lt {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 30px auto;
+  text-align: center;
+  font-weight: 100;
+  letter-spacing: 10px;
+}
+</style>
+
+
+</head>
+<body>
+
+
+  <!-- loader -->
+  <!-- <div id="loader" class="center"></div> -->
+
+
+  
+  <div class="cssloader" id="loader">
+    <div class="sh1"></div>
+    <div class="sh2"></div>
+    <h4 class="lt">loading</h4>
+  </div>
+
+<script>
+  document.onreadystatechange = function() {
+    if (document.readyState !== "complete") {
+      document.querySelector(
+      "body").style.visibility = "hidden";
+      document.querySelector(
+      "#loader").style.visibility = "visible";
+    } else {
+      document.querySelector(
+      "#loader").style.display = "none";
+      document.querySelector(
+      "body").style.visibility = "visible";
+    }
+  };
+  $(window).load(function(){
+  $('.cssloader').fadeOut('slow',function(){$(this).remove();});
+});
+</script>
+  <!-- loader -->
+
+ 
+	
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+ 
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="container-fluid px-3 px-sm-5 my-5 text-center">
+            <h2 style="text-align: center; color: #fff; ">Face Recognition System Company</h2>
+          </div>
+          <div id="customers-testimonials" class="owl-carousel">
+ 
+            <!--TESTIMONIAL 1 -->
+            <div class="item">
+				<a href="{% url 'add_emp' %}">
+					<div class="shadow-2xl p-4 rounded">
+						{% load static %} 
+						<img src="{% static 'img/index/add_employee.png' %}" class="image" alt="" />
+						<h4 class="pb-2 pt-3" >Add Employees</h4>
+						<!-- <p class="mb-0 text-muted">bla bla lba</p> -->
+					</div>             
+				</a> 
+            </div>
+            <!--END OF TESTIMONIAL 1 -->
+            <!--TESTIMONIAL 2 -->
+            <div class="item">
+				<a href="{% url 'add_photos' %}">
+					<div class="shadow-2xl p-4 rounded">
+						{% load static %} 
+						<img src="{% static 'img/index/add_photo.png' %}" class="image" alt="" />
+						<h4 class="pb-2 pt-3">Add Photos</h4>
+						<!-- <p class="mb-0 text-muted">bla bla bla</p> -->
+					</div>
+				</a>
+            </div>
+            <!--END OF TESTIMONIAL 2 -->
+            <!--TESTIMONIAL 3 -->
+            <div class="item" >
+				<a href="{% url 'train_model' %}">
+					<div class="shadow-2xl p-4 rounded">
+						{% load static %} 
+						<img src="{% static 'img/index/train_model.png' %}" class="image" alt="" />
+						<h4 class="pb-2 pt-3">Train Model</h4>
+						<!-- <p class="mb-0 text-muted">bla bla bla</p> -->
+					</div>
+				</a>
+            </div>
+            <!--END OF TESTIMONIAL 3 -->
+            <!--TESTIMONIAL 4 -->
+            <div class="item" >
+				<a href="{% url 'identify' %}">
+					<div class="shadow-2xl p-4 rounded">
+						{% load static %} 
+						<img src="{% static 'img/index/face_recognition.png' %}" class="image" alt="" />
+						<h4 class="pb-2 pt-3">Identify Face</h4>
+						<!-- <p class="mb-0 text-muted">bla bla bla</p> -->
+					  </div>
+				</a>
+              </div>
+
+            <div class="item" >
+				<a href="{% url 'detected' %}">
+					<div class="shadow-2xl p-4 rounded">
+						{% load static %} 
+						<img src="{% static 'img/index/face_detection.png' %}" class="image" alt="" />
+						<h4 class="pb-2 pt-3">Detected Face</h4>
+						<!-- <p class="mb-0 text-muted">bla bla bla</p> -->
+					  </div>
+				</a>
+              </div>
+           
+      
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END OF TESTIMONIALS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+  jQuery(document).ready(function($) {
+                "use strict";
+                //  TESTIMONIALS CAROUSEL HOOK
+                $('#customers-testimonials').owlCarousel({
+                    loop: true,
+                    center: true,
+                    items: 3,
+                    margin: 0,
+                    autoplay: true,
+                    dots:true,
+                    autoplayTimeout: 5000,
+                    smartSpeed: 450,
+                    responsive: {
+                      0: {
+                        items: 1
+                      },
+                      768: {
+                        items: 2
+                      },
+                      1170: {
+                        items: 3
+                      }
+                    }
+                });
+            });
+  </script>
+
+
+
+	
+</body>
+
+</html>
+
+
+{% endblock %}

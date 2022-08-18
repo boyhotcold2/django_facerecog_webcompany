@@ -1,0 +1,121 @@
+ {% load static %}
+<style type="text/css">
+
+  .logout {
+    background: #ff0000;
+    
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center ;
+    font-weight: bold;
+   
+  }
+  .hello-msg
+  {
+    text-align: center;
+    font-size:18px;
+    color:#fff;
+    margin-right:20px;
+  }
+</style> 
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  	<a class="navbar-brand" href="#" id="logo">Anh Tuan</a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarNav">
+    	<ul class="navbar-nav">
+      		<li class="nav-item">
+        		<a class="nav-link" href="{% url 'index' %}">Main Page</a>
+      		</li>
+      		<li class="nav-item">
+				<a class="nav-link" href="{% url 'all_students' %}">All Employees</a>
+      		</li>
+          <li class="nav-item">
+				<a class="nav-link" href="{% url 'absent_students' %}">Absent Employees</a>
+          </li>
+          <li class="nav-item">
+				<a class="nav-link" href="{% url 'report' %}">Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'send_file' %}">Send File</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About</a>
+          </li>
+    	</ul>
+  	</div>
+  <span class="hello-msg">Hello, {{request.user}}</span>
+  <span><a class="hello-msg" href="{% url 'logout' %}">  Logout</a></span>
+</nav> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=
+	, initial-scale=1.0">
+	<title>Document</title>
+
+	  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+    {% load static %}
+	  <link rel="stylesheet"  href="{% static 'attendance_nav/style.css' %}">
+  {% block css %}{% endblock %}
+
+
+
+  <nav class="navbar navbar-expand-custom navbar-mainbg">
+    {% load static %}
+    <img class="navbar-brand navbar-logo" src="{% static 'attendance_nav/1.png' %}"  alt="img" style="width: 85x ; height: 85px ; padding: 5px 15px;" >
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto justify-content-center"  >
+            <!-- <div class="hori-selector"><div class="left"></div><div class="right"></div></div> -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}"><i class="fas fa-tachometer-alt"></i>Main</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'all_students' %}"><i class="far fa-address-book"></i>All Employees</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}"><i class="far fa-clone"></i>Components</a>
+            </li> -->
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'absent_students' %}"><i class="far fa-calendar-alt"></i>Absent Employees</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link"  href="{% url 'report' %}"><i class="far fa-chart-bar"></i>Charts</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+            </li> -->
+        </ul>
+    </div>
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <button class="logout"> <span ><a class="hello-msg"  href="{% url 'logout' %}"> Logout</a></span> </button>
+  </nav>
+
+</head>
+<body>
+
+
+
+  {% load static %}
+	<script src="{% static 'attendance_nav/script.js' %}"></script>  
+
+  <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js'></script>
+  {% block js %} {% endblock %}
+
+	
+</body>
+</html>
+
